@@ -1,0 +1,1 @@
+export const usePermissions = () => ({ hasPermission: () => true, hasRole: () => true });

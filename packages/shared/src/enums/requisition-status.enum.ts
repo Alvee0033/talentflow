@@ -1,0 +1,9 @@
+export enum RequisitionStatus {
+  DRAFT = 'DRAFT',
+  AWAITING_APPROVAL = 'AWAITING_APPROVAL',
+  APPROVED = 'APPROVED',
+  OPEN = 'OPEN',
+  ON_HOLD = 'ON_HOLD',
+  FILLED = 'FILLED',
+  CLOSED = 'CLOSED',
+}

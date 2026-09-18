@@ -1,0 +1,1 @@
+import { useState } from "react"; export function useMediaQuery() { return false; }

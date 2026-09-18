@@ -1,0 +1,21 @@
+import { IsBoolean, IsOptional, IsString, MaxLength } from 'class-validator';
+
+export class UpdateBusinessUnitDto {
+  @IsOptional()
+  @IsString()
+  @MaxLength(150)
+  name?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(50)
+  code?: string;
+
+  @IsOptional()
+  @IsString()
+  description?: string;
+
+  @IsOptional()
+  @IsBoolean()
+  isActive?: boolean;
+}

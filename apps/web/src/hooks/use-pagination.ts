@@ -1,0 +1,1 @@
+import { useState } from "react"; export function usePagination() { return { page: 1, setPage: () => {} }; }

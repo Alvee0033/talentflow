@@ -1,0 +1,31 @@
+{
+  "name": "anwar-talentflow",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Anwar TalentFlow — Talent Acquisition Coordination System",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "test:cov": "turbo run test:cov",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,css,md}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,css,md}\"",
+    "clean": "turbo run clean",
+    "db:migrate": "pnpm --filter api run migration:run",
+    "db:seed": "pnpm --filter api run seed",
+    "docker:up": "docker compose -f docker/docker-compose.yml up -d",
+    "docker:down": "docker compose -f docker/docker-compose.yml down"
+  },
+  "devDependencies": {
+    "turbo": "^2.4.0",
+    "prettier": "^3.4.0",
+    "eslint": "^9.0.0",
+    "typescript": "^5.7.0"
+  },
+  "packageManager": "pnpm@11.1.2",
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  }
+}

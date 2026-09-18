@@ -1,0 +1,284 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: #F5F6F8;
+    --surface: #FFFFFF;
+    --ink: #1B2130;
+    --ink-soft: #5B6577;
+    --line: #E2E5EA;
+    --navy: #233247;
+    --navy-soft: #3C4C64;
+    --teal: #0E7C66;
+    --teal-soft: #E3F3EE;
+    --amber: #9A5B12;
+    --amber-soft: #FBEDDD;
+    --red: #A23B34;
+    --red-soft: #FBEAE8;
+    --blue: #26568F;
+    --blue-soft: #E7F0FA;
+
+    --background: 220 14% 97%;
+    --foreground: 222 28% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 28% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 28% 15%;
+    --primary: 168 80% 27%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 14% 94%;
+    --secondary-foreground: 222 28% 15%;
+    --muted: 220 14% 94%;
+    --muted-foreground: 218 13% 41%;
+    --accent: 168 80% 92%;
+    --accent-foreground: 168 80% 27%;
+    --destructive: 4 52% 42%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 218 16% 90%;
+    --input: 218 16% 90%;
+    --ring: 168 80% 27%;
+    --radius: 0.625rem;
+    --success: 168 80% 27%;
+    --warning: 32 79% 34%;
+  }
+
+  .dark {
+    --bg: #131720;
+    --surface: #1B2130;
+    --ink: #F5F6F8;
+    --ink-soft: #9BA4B5;
+    --line: #2E3748;
+    --navy: #182230;
+    --navy-soft: #233247;
+    --teal: #10937A;
+    --teal-soft: #143831;
+    --amber: #C67920;
+    --amber-soft: #382512;
+    --red: #C54E46;
+    --red-soft: #3B1B18;
+    --blue: #3E79C4;
+    --blue-soft: #172B46;
+
+    --background: 222 27% 10%;
+    --foreground: 220 14% 97%;
+    --card: 222 28% 15%;
+    --card-foreground: 220 14% 97%;
+    --popover: 222 28% 15%;
+    --popover-foreground: 220 14% 97%;
+    --primary: 168 80% 32%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 222 24% 20%;
+    --secondary-foreground: 220 14% 97%;
+    --muted: 222 24% 20%;
+    --muted-foreground: 218 13% 65%;
+    --accent: 168 80% 20%;
+    --accent-foreground: 168 80% 80%;
+    --destructive: 4 52% 42%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 222 22% 23%;
+    --input: 222 22% 23%;
+    --ring: 168 80% 32%;
+    --radius: 0.625rem;
+    --success: 168 80% 32%;
+    --warning: 32 79% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+/* Mockup Specific UI Component Styles */
+.topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 22px;
+}
+
+.screen-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 4px;
+  letter-spacing: -0.01em;
+}
+
+.screen-sub {
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.role-pill {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--navy-soft);
+  background: #EDEFF3;
+  border: 1px solid var(--line);
+  padding: 6px 14px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.kpi {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  min-width: 150px;
+  flex: 1;
+}
+
+.kpi .num {
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.kpi .label {
+  font-size: 11.5px;
+  color: var(--ink-soft);
+  margin-top: 6px;
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  margin-bottom: 18px;
+}
+
+.panel h3 {
+  font-size: 14px;
+  margin: 0 0 14px;
+  font-weight: 700;
+}
+
+.badge-teal {
+  background: var(--teal-soft);
+  color: var(--teal);
+  font-weight: 600;
+}
+
+.badge-amber {
+  background: var(--amber-soft);
+  color: var(--amber);
+  font-weight: 600;
+}
+
+.badge-red {
+  background: var(--red-soft);
+  color: var(--red);
+  font-weight: 600;
+}
+
+.badge-blue {
+  background: var(--blue-soft);
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.badge-grey {
+  background: #EEEFF2;
+  color: #5B6577;
+  font-weight: 600;
+}
+
+.pipeline-track {
+  display: flex;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+
+.pipeline-step {
+  flex: 1;
+  text-align: center;
+  padding: 11px 4px;
+  font-size: 12.5px;
+  font-weight: 600;
+  background: #EDEFF3;
+  color: var(--ink-soft);
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.pipeline-step.active {
+  background: var(--navy);
+  color: #FFFFFF;
+}
+
+.pipeline-step.completed {
+  background: var(--teal-soft);
+  color: var(--teal);
+}
+
+/* Button utility classes for mockups */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border: 1px solid transparent;
+  text-decoration: none;
+  line-height: 1.25;
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--teal);
+  color: #FFFFFF;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #0B6452;
+}
+
+.btn-outline {
+  background: #FFFFFF;
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+.btn-outline:hover:not(:disabled) {
+  background: #EDEFF3;
+  border-color: #D2D6DE;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink-soft);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  background: #EDEFF3;
+  color: var(--ink);
+}
+
+.btn-danger {
+  background: var(--red);
+  color: #FFFFFF;
+}
+
+.btn-danger:hover:not(:disabled) {
+  background: #8A2F29;
+}
