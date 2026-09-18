@@ -222,7 +222,7 @@ async function runSeed() {
       permissions: getPerms([
         'interview:read', 'candidate:read', 'application:read',
         'evaluation:create', 'evaluation:read', 'evaluation:update',
-        'user:read', 'organization:read',
+        'user:read', 'organization:read', 'dashboard:read', 'task:read',
       ]),
     },
     {
@@ -359,21 +359,29 @@ async function runSeed() {
   }
   taHeadUser = await userRepo.save(taHeadUser);
 
-  // Panel Member: Dr. Kamal Hossain
-  let panelUser = await userRepo.findOne({ where: { email: 'panelist@talentflow.anwargroup.com' } });
-  if (!panelUser) {
-    panelUser = userRepo.create({
-      email: 'panelist@talentflow.anwargroup.com',
-      passwordHash: await bcrypt.hash('Panel@123456', 12),
-      firstName: 'Kamal',
-      lastName: 'Hossain',
-      employeeId: 'EMP-0006',
-      phone: '+8801700000006',
-      isActive: true,
-      roles: [panelMemberRole],
-    });
-    panelUser = await userRepo.save(panelUser);
+  // Panel Member: Dr. Kamal Hossain (support both panelist@ and panel@)
+  const panelPasswordHash = await bcrypt.hash('Panel@123456', 12);
+  for (const pEmail of ['panelist@talentflow.anwargroup.com', 'panel@talentflow.anwargroup.com']) {
+    let pUser = await userRepo.findOne({ where: { email: pEmail } });
+    if (!pUser) {
+      pUser = userRepo.create({
+        email: pEmail,
+        passwordHash: panelPasswordHash,
+        firstName: 'Kamal',
+        lastName: 'Hossain',
+        employeeId: pEmail.startsWith('panelist') ? 'EMP-0006' : 'EMP-0006-P',
+        phone: '+8801700000006',
+        isActive: true,
+        roles: [panelMemberRole],
+      });
+    } else {
+      pUser.passwordHash = panelPasswordHash;
+      pUser.roles = [panelMemberRole];
+      pUser.isActive = true;
+    }
+    await userRepo.save(pUser);
   }
+  let panelUser = (await userRepo.findOne({ where: { email: 'panelist@talentflow.anwargroup.com' } }))!;
 
   console.log('Seeded Users.');
 
